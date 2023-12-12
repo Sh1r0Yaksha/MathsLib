@@ -15,43 +15,36 @@ namespace MathsLib.Trigonometry
 
         public static double Sin(double angleDegrees)
         {
-            angleDegrees = angleDegrees % 360;
-            var sin = Math.Sin(DegreesToRadians(angleDegrees)) ;
-            return  Math.Abs(sin) < tolerance ? 0 : sin ;
+            return Math.Sin(DegreesToRadians(angleDegrees));
         }
 
         public static double Cos(double angleDegrees)
         {
-            var cos = Math.Cos(DegreesToRadians(angleDegrees));
-            return Math.Abs(cos) < tolerance ? 0 : cos;
+            return Math.Cos(DegreesToRadians(angleDegrees));
         }
 
         public static double Tan(double angleDegrees)
         {
-            var tan = Math.Tan(DegreesToRadians(angleDegrees));
-            return Math.Abs(tan) < tolerance ? 0 : tan;
+            return Math.Tan(DegreesToRadians(angleDegrees));
         }
 
         public static double Sec(double angleDegrees)
         {
             var cos = Cos(angleDegrees);
-            var sec = cos == 0 ? double.NaN : 1 / cos;
-            return sec;
+            return cos == 0 ? double.NaN : 1 / cos;
         }
 
         public static double Cosec(double angleDegrees)
         {
             var sin = Sin(angleDegrees);
-            var cosec = sin == 0 ? double.NaN : 1 / sin;
-            return cosec;
+            return sin == 0 ? double.NaN : 1 / sin;
         }
 
         public static double Cot(double angleDegrees)
         {
 
             var tan = Tan(angleDegrees);
-            var cot = tan == 0 ? double.NaN : 1 / tan;
-            return cot;
+            return tan == 0 ? double.NaN : 1 / tan;
         }
     }
 }
