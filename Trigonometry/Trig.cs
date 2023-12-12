@@ -46,5 +46,35 @@ namespace MathsLib.Trigonometry
             var tan = Tan(angleDegrees);
             return tan == 0 ? double.NaN : 1 / tan;
         }
+
+        public static double ASin(double x)
+        {
+            return RadiansToDegrees(Math.Asin(x));
+        }
+
+        public static double ACos(double x)
+        {
+            return RadiansToDegrees(Math.Acos(x));
+        }
+
+        public static double ATan(double x)
+        {
+            return RadiansToDegrees(Math.Atan(x));
+        }
+
+        public static double ASec(double x)
+        {
+            return x == 0 ? double.NaN : RadiansToDegrees(Math.Acos(1/x));
+        }
+
+        public static double ACosec(double x)
+        {
+            return x == 0 ? double.NaN : RadiansToDegrees(Math.Asin(1/x));
+        }
+
+        public static double ACot(double x)
+        {
+            return x == 0 ? double.NaN : RadiansToDegrees(Math.Atan(1/x));
+        }
     }
 }

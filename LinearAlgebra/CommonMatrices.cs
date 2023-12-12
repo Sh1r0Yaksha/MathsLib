@@ -118,7 +118,7 @@ namespace MathsLib.LinearAlgebra
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="angleDegrees">Angle of rotation in degrees</param>
         /// <returns></returns>
