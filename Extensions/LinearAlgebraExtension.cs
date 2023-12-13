@@ -1,6 +1,8 @@
-namespace MathsLib.LinearAlgebra
+using MathsLib.LinearAlgebra;
+
+namespace MathsLib.Extensions
 {
-    internal class LinearAlgebraUtils
+    internal class LinearAlgebraExtension
     {
         public static double GetSignForDeterminant(int i, int j)
         {

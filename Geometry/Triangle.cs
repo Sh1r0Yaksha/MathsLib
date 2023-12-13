@@ -1,4 +1,4 @@
-using MathsLib.Trigonometry;
+using MathsLib.Extensions;
 
 namespace MathsLib.Geometry
 {
@@ -13,13 +13,13 @@ namespace MathsLib.Geometry
             // All three sides given
             if (a != 0 && b != 0 && c != 0)
             {
-                A = 180 - Trig.ACos(PolygonUtils.TriangleCosA(a, b, c));
-                B = 180 - Trig.ACos(PolygonUtils.TriangleCosA(b, a, c));
+                A = 180 - Trigonometry.ACos(PolygonExtension.TriangleCosA(a, b, c));
+                B = 180 - Trigonometry.ACos(PolygonExtension.TriangleCosA(b, a, c));
                 C = 180 - A - B;
             }
 
             // Two Angles and a side is given
-            else if (PolygonUtils.CheckForExactlyTwoGiven(A, B, C) && PolygonUtils.CheckForExactlyOneGiven(a, b, c))
+            else if (PolygonExtension.CheckForExactlyTwoGiven(A, B, C) && PolygonExtension.CheckForExactlyOneGiven(a, b, c))
             {
                 if (A == 0)
                     A = 180 - (B + C);
@@ -30,18 +30,18 @@ namespace MathsLib.Geometry
 
                 if (a != 0)
                 {
-                    b = Trig.Sin(B) * a /  Trig.Sin(A);
-                    c = Trig.Sin(C) * a /  Trig.Sin(A);
+                    b = Trigonometry.Sin(B) * a /  Trigonometry.Sin(A);
+                    c = Trigonometry.Sin(C) * a /  Trigonometry.Sin(A);
                 }
                 else if (b != 0)
                 {
-                    a = Trig.Sin(A) * b /  Trig.Sin(B);
-                    c = Trig.Sin(C) * b /  Trig.Sin(B);
+                    a = Trigonometry.Sin(A) * b /  Trigonometry.Sin(B);
+                    c = Trigonometry.Sin(C) * b /  Trigonometry.Sin(B);
                 }
                 else if (c != 0)
                 {
-                    a = Trig.Sin(A) * c /  Trig.Sin(C);
-                    b = Trig.Sin(B) * c /  Trig.Sin(C);
+                    a = Trigonometry.Sin(A) * c /  Trigonometry.Sin(C);
+                    b = Trigonometry.Sin(B) * c /  Trigonometry.Sin(C);
                 }
                 else
                 {
@@ -50,24 +50,24 @@ namespace MathsLib.Geometry
             }
 
             // Two Sides and an Angle is given
-            else if (PolygonUtils.CheckForExactlyTwoGiven(a, b, c) && PolygonUtils.CheckForExactlyOneGiven(A, B, C))
+            else if (PolygonExtension.CheckForExactlyTwoGiven(a, b, c) && PolygonExtension.CheckForExactlyOneGiven(A, B, C))
             {
                 if (a == 0 && A != 0)
                 {
-                    a = Math.Sqrt(b*b + c*c - 2*b*c*Trig.Cos(A));
-                    B = 180 - Trig.ACos(PolygonUtils.TriangleCosA(b, a, c));
+                    a = Math.Sqrt(b*b + c*c - 2*b*c*Trigonometry.Cos(A));
+                    B = 180 - Trigonometry.ACos(PolygonExtension.TriangleCosA(b, a, c));
                     C = 180 - A - B;
                 }
                 else if (b == 0 && B != 0)
                 {
-                    b = Math.Sqrt(a*a + c*c - 2*a*c*Trig.Cos(B));
-                    A = 180 - Trig.ACos(PolygonUtils.TriangleCosA(a, b, c));
+                    b = Math.Sqrt(a*a + c*c - 2*a*c*Trigonometry.Cos(B));
+                    A = 180 - Trigonometry.ACos(PolygonExtension.TriangleCosA(a, b, c));
                     C = 180 - A - B;
                 }
                 else if (c == 0 && C != 0)
                 {
-                    c = Math.Sqrt(a*a + b*b - 2*a*b*Trig.Cos(C));
-                    A = 180 - Trig.ACos(PolygonUtils.TriangleCosA(a, b, c));
+                    c = Math.Sqrt(a*a + b*b - 2*a*b*Trigonometry.Cos(C));
+                    A = 180 - Trigonometry.ACos(PolygonExtension.TriangleCosA(a, b, c));
                     B = 180 - A - C;
                 }
                 else if (A == 90)
@@ -76,7 +76,7 @@ namespace MathsLib.Geometry
                         b = Math.Sqrt(a*a - c*c);
                     if (c == 0)
                         c = Math.Sqrt(a*a - b*b);
-                    B = 180 - Trig.ACos(PolygonUtils.TriangleCosA(b, a, c));
+                    B = 180 - Trigonometry.ACos(PolygonExtension.TriangleCosA(b, a, c));
                     C = 90 - B;
                 }
                 else if (B == 90)
@@ -85,7 +85,7 @@ namespace MathsLib.Geometry
                         a = Math.Sqrt(b*b - c*c);
                     if (c == 0)
                         c = Math.Sqrt(b*b - a*a);
-                    C = 180 - Trig.ACos(PolygonUtils.TriangleCosA(c, b, a));
+                    C = 180 - Trigonometry.ACos(PolygonExtension.TriangleCosA(c, b, a));
                     A = 90 - C;
                 }
                 else if (C == 90)
@@ -94,7 +94,7 @@ namespace MathsLib.Geometry
                         a = Math.Sqrt(c*c - a*a);
                     if (a == 0)
                         a = Math.Sqrt(c*c - b*b);
-                    B = 180 - Trig.ACos(PolygonUtils.TriangleCosA(b, a, c));
+                    B = 180 - Trigonometry.ACos(PolygonExtension.TriangleCosA(b, a, c));
                     A = 90 - B;
                 }
                 else

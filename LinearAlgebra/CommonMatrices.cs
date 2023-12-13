@@ -1,5 +1,3 @@
-using MathsLib.Trigonometry;
-
 namespace MathsLib.LinearAlgebra
 {
     /// <summary>
@@ -15,8 +13,8 @@ namespace MathsLib.LinearAlgebra
         public static Matrix Rotation2D(double angleDegrees)
         {
             Matrix matrix = new Matrix(2,2);
-            double cos = Trig.Cos(angleDegrees);
-            double sin = Trig.Sin(angleDegrees);
+            double cos = Trigonometry.Cos(angleDegrees);
+            double sin = Trigonometry.Sin(angleDegrees);
             matrix[0,0] = cos;
             matrix[0,1] = sin == 0 ? 0 : -sin;
             matrix[1,0] = sin;
@@ -33,8 +31,8 @@ namespace MathsLib.LinearAlgebra
         public static Matrix Rotation3Dx(double angleDegrees)
         {
             Matrix matrix = new Matrix(3,3);
-            double cos = Trig.Cos(angleDegrees);
-            double sin = Trig.Sin(angleDegrees);
+            double cos = Trigonometry.Cos(angleDegrees);
+            double sin = Trigonometry.Sin(angleDegrees);
             matrix[0,0] = 1;
             matrix[0,1] = 0;
             matrix[0,2] = 0;
@@ -59,8 +57,8 @@ namespace MathsLib.LinearAlgebra
         public static Matrix Rotation3Dy(double angleDegrees)
         {
             Matrix matrix = new Matrix(3,3);
-            double cos = Trig.Cos(angleDegrees);
-            double sin = Trig.Sin(angleDegrees);
+            double cos = Trigonometry.Cos(angleDegrees);
+            double sin = Trigonometry.Sin(angleDegrees);
             matrix[0,0] = cos;
             matrix[0,1] = 0;
             matrix[0,2] = sin;
@@ -85,8 +83,8 @@ namespace MathsLib.LinearAlgebra
         public static Matrix Rotation3Dz(double angleDegrees)
         {
             Matrix matrix = new Matrix(3,3);
-            double cos = Trig.Cos(angleDegrees);
-            double sin = Trig.Sin(angleDegrees);
+            double cos = Trigonometry.Cos(angleDegrees);
+            double sin = Trigonometry.Sin(angleDegrees);
             matrix[0,0] = cos;
             matrix[0,1] = sin == 0 ? 0 : -sin;
             matrix[0,2] = 0;

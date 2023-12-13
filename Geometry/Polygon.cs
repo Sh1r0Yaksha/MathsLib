@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using MathsLib.Trigonometry;
-
 namespace MathsLib.Geometry
 {
 

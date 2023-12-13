@@ -1,6 +1,6 @@
-namespace MathsLib.Geometry
+namespace MathsLib.Extensions
 {
-    internal class PolygonUtils
+    internal class PolygonExtension
     {
         public static bool CheckForExactlyTwoGiven(double a, double b, double c)
         {

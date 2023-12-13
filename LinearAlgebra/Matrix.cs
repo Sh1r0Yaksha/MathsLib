@@ -1,4 +1,4 @@
-using System;
+using MathsLib.Extensions;
 
 namespace MathsLib.LinearAlgebra
 {
@@ -122,8 +122,8 @@ namespace MathsLib.LinearAlgebra
                 // Laplace expansion
                 for (int j = 0; j < n; j++)
                 {
-                    var submatrix = LinearAlgebraUtils.GetSubmatrix(this, 0, j);
-                    result += this[0, j] * LinearAlgebraUtils.GetSignForDeterminant(0, j) * submatrix.Determinant;
+                    var submatrix = LinearAlgebraExtension.GetSubmatrix(this, 0, j);
+                    result += this[0, j] * LinearAlgebraExtension.GetSignForDeterminant(0, j) * submatrix.Determinant;
                 }
 
                 return result;

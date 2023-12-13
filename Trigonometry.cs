@@ -1,6 +1,6 @@
-namespace MathsLib.Trigonometry
+namespace MathsLib
 {
-    public class Trig
+    public class Trigonometry
     {
         const double tolerance = 1E-12;
         public static double DegreesToRadians(double degrees)

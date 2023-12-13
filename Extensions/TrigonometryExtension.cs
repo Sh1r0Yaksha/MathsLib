@@ -1,11 +1,11 @@
-namespace MathsLib.Trigonometry
+namespace MathsLib.Extensions
 {
-    internal class TrignometryUtils
+    internal class TrigonometryExtension
     {
         public static double TaylorExpansionSine(double x, int precision)
         {
             double[] factorialArray;
-            double _ = General.Factorial(2*precision - 1,out factorialArray);
+            double _ = Combinatorics.Factorial(2*precision - 1,out factorialArray);
             double result = 0;
 
             for (int i = 1; i <= precision; i++)
@@ -22,7 +22,7 @@ namespace MathsLib.Trigonometry
         public static double TaylorExpansionCosine(double x, int precision)
         {
             double[] factorialArray;
-            double _ = General.Factorial(2 * (precision-1),out factorialArray);
+            double _ = Combinatorics.Factorial(2 * (precision-1),out factorialArray);
             double result = 0;
 
             for (int i = 0; i < precision; i++)
@@ -35,6 +35,5 @@ namespace MathsLib.Trigonometry
 
             return result;
         }
-
     }
 }
