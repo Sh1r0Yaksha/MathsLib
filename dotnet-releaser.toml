@@ -1,0 +1,6 @@
+# configuration file for dotnet-releaser
+[msbuild]
+project = "MathsLib.sln"
+[github]
+user = "Sh1r0Yaksha"
+repo = "MathsLib"

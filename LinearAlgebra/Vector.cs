@@ -1,3 +1,5 @@
+using MathsLib.Geometry.CoordinateGeometry;
+
 namespace MathsLib.LinearAlgebra
 {
     public class Vector
@@ -35,7 +37,14 @@ namespace MathsLib.LinearAlgebra
                 }
             }
         }
-        public Vector normal => this / magnitude;
+        public Vector normal
+        {
+            get
+            {
+                return this / magnitude;
+            }
+        }
+
 
         public static Vector operator / (Vector v, double dividend)
         {
@@ -92,6 +101,11 @@ namespace MathsLib.LinearAlgebra
                 v[i,0] = this[i];
             }
             return v;
+        }
+
+        public Coordinate ToCoordinates()
+        {
+            return new Coordinate(X, Y, Z);
         }
     }
 }
