@@ -26,11 +26,9 @@ jobs:
 
     - name: Publish
       run: dotnet publish -c Release
-
-    - name: Automatic Releases
-      uses: marvinpinto/action-automatic-releases@v1.2.1
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        prerelease: false
-        files: |
-          ./bin/Release/net7.0/*.dll
+      
+    - name: Build, Tests, Cover, Pack and Publish (on push tag)
+      shell: bash
+      run: |
+        dotnet tool install --global dotnet-releaser
+        dotnet-releaser run --github-token "${{secrets.GITHUB_TOKEN}}" src/dotnet-releaser.toml
