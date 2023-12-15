@@ -1,0 +1,34 @@
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - main # or your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '7.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release
+
+    - name: Publish
+      run: dotnet publish -c Release
+      
+    - name: Build, Tests, Cover, Pack and Publish (on push tag)
+      shell: bash
+      run: |
+        dotnet tool install --global dotnet-releaser
+        dotnet-releaser run --github-token "${{secrets.GITHUB_TOKEN}}" src/dotnet-releaser.toml
