@@ -4,8 +4,8 @@ namespace MathsLib.Geometry.ComputationalGeometry
 {
     public class ConvexHull
     {
-        // TODO Convex Hull
-        public static Coordinate[] Hull(params Coordinate[] coordinates)
+        // TODO: Convex Hull
+        public static Point[] Hull(params Point[] coordinates)
         {
             return coordinates;
         }

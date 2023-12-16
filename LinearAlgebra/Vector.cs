@@ -103,9 +103,9 @@ namespace MathsLib.LinearAlgebra
             return v;
         }
 
-        public Coordinate ToCoordinates()
+        public Point ToCoordinates()
         {
-            return new Coordinate(X, Y, Z);
+            return new Point(X, Y, Z);
         }
     }
 }

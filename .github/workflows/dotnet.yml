@@ -2,7 +2,7 @@ name: Build and Publish
 
 on:
   push:
-    tags: 
+    tags:
       - 'v*'
     branches:
       - main # or your main branch name
@@ -14,9 +14,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:  
+      with:
         fetch-depth: '1'
-      
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
@@ -28,7 +27,7 @@ jobs:
 
     - name: Build
       run: dotnet build --no-restore --configuration Release
-      
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1

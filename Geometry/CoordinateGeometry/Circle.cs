@@ -2,7 +2,7 @@ namespace MathsLib.Geometry.CoordinateGeometry
 {
     public class Circle
     {
-        public Coordinate Centre { get; set; }
+        public Point Centre { get; set; }
         public double Radius { get; set; }
         public double Area
         {
@@ -20,7 +20,7 @@ namespace MathsLib.Geometry.CoordinateGeometry
             }
         }
 
-        public Circle(Coordinate center, double radius)
+        public Circle(Point center, double radius)
         {
             Centre = center;
             Radius = radius;
