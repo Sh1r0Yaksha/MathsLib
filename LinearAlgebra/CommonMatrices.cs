@@ -48,7 +48,6 @@ namespace MathsLib.LinearAlgebra
             return matrix;
         }
 
-        
         /// <summary>
         /// Returns a 3D rotation matrix with given angle of rotation about the y-axis
         /// </summary>

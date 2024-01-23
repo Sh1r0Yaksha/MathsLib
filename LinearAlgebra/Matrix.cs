@@ -161,5 +161,64 @@ namespace MathsLib.LinearAlgebra
             return matrix;
         }
 
+        public static Matrix operator + (Matrix m1, Matrix m2)
+        {
+            if (m1.Rows != m2.Rows && m1.Columns != m2.Columns)
+                throw new ArgumentException("Dimensions of matrices don't match!");
+
+            Matrix matrix = new Matrix(m1.Rows, m1.Columns);
+
+            for (int i = 0; i < m1.Rows; i++)
+            {
+                for (int j = 0; j < m1.Columns; j++)
+                {
+                    matrix[i,j] = m1[i,j] + m2[i,j];
+                }
+            }
+
+            return matrix;
+        }
+
+        public static Matrix operator - (Matrix m1, Matrix m2)
+        {
+            if (m1.Rows != m2.Rows && m1.Columns != m2.Columns)
+                throw new ArgumentException("Dimensions of matrices don't match!");
+
+            Matrix matrix = new Matrix(m1.Rows, m1.Columns);
+
+            for (int i = 0; i < m1.Rows; i++)
+            {
+                for (int j = 0; j < m1.Columns; j++)
+                {
+                    matrix[i,j] = m1[i,j] - m2[i,j];
+                }
+            }
+
+            return matrix;
+        }
+
+        public static Matrix operator * (Matrix m, double num)
+        {
+            for (int i = 0; i < m.Rows; i++)
+            {
+                for (int j = 0; j < m.Columns; j++)
+                {
+                    m[i,j] *= num;
+                }
+            }
+            return m;
+        }
+
+        public static Matrix operator * (double num, Matrix m)
+        {
+            for (int i = 0; i < m.Rows; i++)
+            {
+                for (int j = 0; j < m.Columns; j++)
+                {
+                    m[i,j] *= num;
+                }
+            }
+            return m;
+        }
     }
 }
