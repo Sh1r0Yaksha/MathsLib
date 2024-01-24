@@ -76,5 +76,27 @@ namespace MathsLib
         {
             return x == 0 ? double.NaN : RadiansToDegrees(Math.Atan(1/x));
         }
+
+        public static double ATan2(double y, double x)
+        {
+            if (x > 0)
+                return ATan(y / x);
+            else if (x < 0)
+            {
+                if (y >= 0)
+                    return ATan(y / x) + 90;
+                else
+                    return ATan(y / x) - 90;
+            }
+            else
+            {
+                if (y > 0)
+                    return 90;
+                else if ( y < 0)
+                    return -90;
+                else
+                    throw new DivideByZeroException("Both values provided are 0");
+            }
+        }
     }
 }
