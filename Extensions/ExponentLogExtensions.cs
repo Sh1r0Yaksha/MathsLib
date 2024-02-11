@@ -1,6 +1,6 @@
-namespace MathsLib.ExponentsLogarithms
+namespace MathsLib.Extensions
 {
-    internal class ExpLogUtils
+    public class ExponentLogExtensions
     {
         public static double NewtonLn(double number, double tolerance = 1E-10, int maxIterations = 100)
         {

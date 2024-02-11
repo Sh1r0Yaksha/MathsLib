@@ -77,6 +77,46 @@ namespace MathsLib.LinearAlgebra
                 return T;
             }
         }
+        public Matrix Cofactor
+        {
+            get
+            {
+                Matrix cofactor = new Matrix(Rows, Columns);
+                for (int i = 0; i < this.Rows; i++)
+                {
+                    for (int j = 0; j < this.Columns; j++)
+                    {
+                        Matrix minorMatrix = LinearAlgebraExtension.GetSubmatrix(this, i, j);
+                        var minor = minorMatrix.Determinant;
+                        cofactor[i,j] = Math.Pow(-1, i+j) * minor;
+                    }
+                }
+
+                return cofactor;
+            }
+        }
+        public Matrix Adjoint
+        {
+            get
+            {
+                Matrix cofactor = this.Cofactor;
+                return cofactor.Transpose;
+            }
+
+        }
+        public Matrix? Inverse
+        {
+            get
+            {
+                if (this.Determinant == 0)
+                    return null;
+                else
+                {
+                    return Adjoint * (1/this.Determinant);
+                }
+            }
+
+        }
         public Vector ToVector
         {
             get
@@ -160,6 +200,7 @@ namespace MathsLib.LinearAlgebra
 
             return matrix;
         }
+
 
         public static Matrix operator + (Matrix m1, Matrix m2)
         {
