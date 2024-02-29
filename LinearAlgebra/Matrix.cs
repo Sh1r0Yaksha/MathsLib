@@ -169,6 +169,18 @@ namespace MathsLib.LinearAlgebra
                 return result;
             }
         }
+        public double Trace
+        {
+            get
+            {
+                double sum = 0;
+                for (int i = 0; i < Rows; i++)
+                {
+                    sum += this[i,i];
+                }
+                return sum;
+            }
+        }
         public void Print()
         {
             for (int i = 0; i < Rows; i++)
