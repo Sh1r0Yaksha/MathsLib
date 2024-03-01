@@ -41,7 +41,7 @@ namespace MathsLib.GraphTheory
         }
         #endregion
 
-        #region Private Methods
+        #region Protected Methods
         protected void AddNode(Node node)
         {
             if (!Nodes.Contains(node))
@@ -53,6 +53,7 @@ namespace MathsLib.GraphTheory
         #endregion
 
         #region Public Methods
+
         #endregion
     }
 }
