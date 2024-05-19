@@ -26,7 +26,6 @@ namespace MathsLib.Geometry.CoordinateGeometry
             b = -1;
             c = (- Slope * point1.X) + point1.Y;
         }
-
         public Line2D(double a, double b, double c)
         {
             this.a = a;
@@ -35,6 +34,20 @@ namespace MathsLib.Geometry.CoordinateGeometry
             Slope = - a / b;
         }
 
-        // TODO: Add ==, != and Equals for Line2D
+        public static bool operator == (Line2D l1, Line2D l2)
+        {
+            return l1.a == l2.a && l1.b == l2.b && l1.c == l2.c;
+        }
+        public static bool operator != (Line2D l1, Line2D l2)
+        {
+            return !(l1 == l2);
+        }
+        public override bool Equals(object? obj)
+        {
+            if (!(obj is Line2D))
+                return false;
+            else
+                return this == (Line2D)obj;
+        }
     }
 }
